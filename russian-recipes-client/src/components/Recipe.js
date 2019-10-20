@@ -1,19 +1,22 @@
 import React from 'react';
 
 const Recipe = (props) => {
+    let { recipe, clickHandler } = props    // destructured props
 
     return (
         <div className="tile">
-            <h1>Name: {props.recipe.name}</h1>
+            <h1>Name: {recipe.name}</h1>
             <br />
-            <img alt="" src={props.recipe.image_url} />
+            <img alt="" src={recipe.image_url} />
             <br />
-            <p>{props.recipe.description}</p>
-            <button>Add to Favorites</button>
+            <p>{recipe.description}</p>
+            <button onClick={ () => clickHandler(recipe) }>Favorites</button>
         </div>
     )
 
 }
 
-
 export default Recipe
+
+
+// wrap the clickHAndler in an anonymous function, otherwise it will always fire when rendered, as opposed to only when clicked 
