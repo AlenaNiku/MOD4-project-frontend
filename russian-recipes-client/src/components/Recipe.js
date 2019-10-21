@@ -5,7 +5,7 @@ const Recipe = (props) => {
 
     return (
         <div className="tile">
-            <h1>Name: {recipe.name}</h1>
+            <h1>{recipe.name}</h1>
             <br />
             <img alt="" src={recipe.image_url} />
             <br />

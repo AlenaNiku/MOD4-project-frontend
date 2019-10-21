@@ -1,10 +1,13 @@
 import React from 'react';
 import Recipe from '../components/Recipe'
+import RecipeSearch from '../components/RecipeSearch'
 
 class RecipeContainer extends React.Component {
 
     state = {
-        recipes: []
+        recipes: [],
+        searchTerm: ""
+        
     }
 
     componentDidMount() {
@@ -19,11 +22,23 @@ class RecipeContainer extends React.Component {
         return this.state.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={this.props.clickHandler} />)
     }
 
+
+    searchHandler = (e) => {
+        // console.log(e.target.value);
+        let searchTerm = e.target.value
+        this.setState({
+            searchTerm
+        })
+    }
+
+
     render() {
     
         return (
             <div className="recipe-container">
                 <h1>Recipes</h1>
+                <RecipeSearch searchTerm={this.searchTerm} searchHandler={this.searchHandler}/>
+                <br />
                 {this.recipes()}
             </div>
     

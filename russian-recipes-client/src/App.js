@@ -6,7 +6,7 @@ import RecipeFavorites from './containers/RecipeFavorites';
 class App extends React.Component {
 
   state = {
-    favorites: []
+    favorites: [],
   }
 
   addRecipe = (recipe) => {
@@ -21,10 +21,11 @@ class App extends React.Component {
   }
 
 
+
   render() {
     return (
       <div className="App">
-        <RecipeContainer clickHandler={this.addRecipe}/>
+        <RecipeContainer clickHandler={this.addRecipe} searchTerm={this.searchTerm} searchHandler={this.searchTerm}/>
         <RecipeFavorites recipes={this.state.favorites} clickHandler={this.removeRecipe}/>
       </div>
     );
@@ -33,4 +34,4 @@ class App extends React.Component {
 
 export default App;
 
-// create the state for RecipeFAvorites and pass it down to the component as a prop - the idea is that it starts off empty, and once we click on the Recipe in our RecipeContainer it fires a function that makes the copy of the current state of Favorites and adds that Recipe we clicked on to it. The function for adding the recipe lives here as well, because this component is holding the state and also responsible for changing that state
+// create the state for RecipeFavorites and pass it down to the component as a prop - the idea is that it starts off empty, and once we click on the Recipe in our RecipeContainer it fires a function that makes the copy of the current state of Favorites and adds that Recipe we clicked on to it. The function for adding the recipe lives here as well, because this component is holding the state and also responsible for changing that state
