@@ -10,8 +10,6 @@ const RecipeSearch = (props) => {
 }
 
 
-
-
 export default RecipeSearch
 
 // WHERE SHOULD WE PUT OUR STATE?  the RecipeContainer needs to know about all the changes in the input, bc the list of the recipes live inside the RecipeContainer and the RecipeContainer renders that list. The RecipeContainer needs to change based on the character the user types in. Which means that we need to go to our RecipeContainer and add a PIECE OF STATE TO IT. => GO TO RecipeContainer
