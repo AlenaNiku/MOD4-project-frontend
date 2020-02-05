@@ -24,12 +24,22 @@ class RecipeContainer extends React.Component {
         return this.state.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={this.props.clickHandler} />)
     }
     
-    // search form onChange function
+    // Search form onChange Function
     searchHandler = (e) => {
         // console.log(e.target.value);
         let searchTerm = e.target.value
         this.setState({
             searchTerm     // it's ok to directly mutate the state here bc it points to a string (which is a pimitive data structure and is                    passed by value) as opposed to arrays and objects (passed by reference, so you have to make a copy first)
+        })
+    }
+
+    // Form Submit Functions
+    recipeSubmitHandler = (recipe) => {
+        console.log("Argument: ", recipe);
+        // we're adding the recipe to the array (create a copy first, don't directly mutate the state)
+        let newArray = [recipe, ...this.state.recipes] 
+        this.setState({
+            recipes: newArray
         })
     }
 
@@ -43,7 +53,7 @@ class RecipeContainer extends React.Component {
         return (
             <div className="recipe-container">
                 <h1>Recipes</h1>
-                <NewRecipe />
+                <NewRecipe submitHandler={this.recipeSubmitHandler}/>
                 <br />
                 <RecipeSearch searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
                 <br />
@@ -66,4 +76,4 @@ export default RecipeContainer
 // receives a clickHandler as a prop from parent container App, where it points to addRecipe function
 
 
-//
+// since the state of RecipeContainer is changing (when we're submitting a new recipe), we need a callback function which will accept our new recipe and add it to the list of our already exsisting recipies
