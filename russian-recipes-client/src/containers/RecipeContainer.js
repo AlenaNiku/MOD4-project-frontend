@@ -36,11 +36,30 @@ class RecipeContainer extends React.Component {
     // Form Submit Functions
     recipeSubmitHandler = (recipe) => {
         console.log("Argument: ", recipe);
+        this.persistRecipe(recipe)
         // we're adding the recipe to the array (create a copy first, don't directly mutate the state)
-        let newArray = [recipe, ...this.state.recipes] 
-        this.setState({
-            recipes: newArray
+        // let newArray = [recipe, ...this.state.recipes] 
+        // this.setState({
+        //     recipes: newArray
+        // })
+    }
+
+    persistRecipe = (recipe) => {
+        fetch("http://localhost:3001/recipes", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            accepts: "application/json"
+          },
+          body: JSON.stringify(recipe)
         })
+          .then(resp => resp.json())
+          .then(recipe => {
+              let newArray = [recipe, ...this.state.recipes];
+              this.setState({
+                recipes: newArray
+              });
+          });
     }
 
     
