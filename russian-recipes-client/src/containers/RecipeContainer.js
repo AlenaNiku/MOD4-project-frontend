@@ -6,7 +6,7 @@ import NewRecipe from '../components/NewRecipe'
 const RecipeContainer = (props) => {
     // console.log("props:", props)
 
-    let recipeArray = props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={props.clickHandler} />)
+    let recipeArray = props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={props.clickHandler} deleteRecipe={props.deleteRecipe} />)
 
  
     return (

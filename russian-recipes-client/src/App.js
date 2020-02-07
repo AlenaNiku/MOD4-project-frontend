@@ -34,6 +34,13 @@ class App extends React.Component {
     this.setState({ favorites });
   };
 
+  deleteRecipe = recipe => {
+   let recipes = [...this.state.recipes].filter(
+     RecipeObj => RecipeObj.id !== recipe.id
+   );
+   this.setState({ recipes })
+  }
+
   // Search form onChange Function
   searchHandler = e => {
     // console.log(e.target.value);
@@ -83,7 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <RecipeContainer recipes={this.filterRecipe()} clickHandler={this.addRecipe} searchHandler={this.searchHandler} submitHandler={this.recipeSubmitHandler}/>
+        <RecipeContainer recipes={this.filterRecipe()} clickHandler={this.addRecipe} searchHandler={this.searchHandler} submitHandler={this.recipeSubmitHandler} deleteRecipe={this.deleteRecipe}/>
         <RecipeFavorites
           recipes={this.state.favorites}
           clickHandler={this.removeRecipe}

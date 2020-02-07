@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Recipe = (props) => {
-    let { recipe, clickHandler } = props    // destructured props
+    let { recipe, clickHandler, deleteRecipe } = props    // destructured props
 
     return (
         <div className="tile">
@@ -12,6 +12,7 @@ const Recipe = (props) => {
             <p>{recipe.description}</p>
             <button onClick={ () => clickHandler(recipe) }>Favorites</button>
             <button>See the Recipe</button>
+            <button onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button>
         </div>
     )
 
