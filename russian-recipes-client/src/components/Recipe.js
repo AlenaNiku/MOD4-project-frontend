@@ -11,6 +11,7 @@ const Recipe = (props) => {
             <br />
             <p>{recipe.description}</p>
             <button onClick={ () => clickHandler(recipe) }>Favorites</button>
+            <button>See the Recipe</button>
         </div>
     )
 
