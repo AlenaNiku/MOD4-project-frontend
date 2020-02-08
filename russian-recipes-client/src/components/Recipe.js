@@ -12,7 +12,7 @@ const Recipe = (props) => {
             <p>{recipe.description}</p>
             <button onClick={ () => clickHandler(recipe) }>Favorites</button>
             <button>See the Recipe</button>
-            <button onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button>
+            <button id="delete" onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button>
         </div>
     )
 

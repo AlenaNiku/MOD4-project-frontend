@@ -21,12 +21,14 @@ class App extends React.Component {
       );
   }
 
+  // adding a recipe to favorites
   addRecipe = recipe => {
     this.setState({
       favorites: [...this.state.favorites, recipe] // sqare bracket notation means that we're looking for the value this evaluates to in the moment, not literal value
     });
   };
 
+  // removing the recipe from favorites
   removeRecipe = recipe => {
     let favorites = [...this.state.favorites].filter(
       RecipeObj => RecipeObj.id !== recipe.id
@@ -34,12 +36,22 @@ class App extends React.Component {
     this.setState({ favorites });
   };
 
+  // deleting the recipe   (The filter() method creates a new array with all elements that pass the test implemented by the provided                                   function.)
   deleteRecipe = recipe => {
-   let recipes = [...this.state.recipes].filter(
-     RecipeObj => RecipeObj.id !== recipe.id
-   );
-   this.setState({ recipes })
-  }
+    // console.log(recipe);
+    fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+      method: "DELETE",
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      let Newrecipes = this.state.recipes.filter(
+        RecipeObj => RecipeObj.id !== recipe.id
+      )
+      this.setState({ 
+        recipes: Newrecipes
+       });
+    })   
+  };
 
   // Search form onChange Function
   searchHandler = e => {
@@ -51,11 +63,11 @@ class App extends React.Component {
   };
 
   // filter the recipes based on the chararcter the user types in
-    filterRecipe = () => {
-      return this.state.recipes.filter(recipeObj =>
-        recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
-      );
-    };
+  filterRecipe = () => {
+    return this.state.recipes.filter(recipeObj =>
+      recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
+    );
+  };
 
   // Form Submit Functions
   recipeSubmitHandler = recipe => {
@@ -86,11 +98,16 @@ class App extends React.Component {
       });
   };
 
-
   render() {
     return (
       <div className="App">
-        <RecipeContainer recipes={this.filterRecipe()} clickHandler={this.addRecipe} searchHandler={this.searchHandler} submitHandler={this.recipeSubmitHandler} deleteRecipe={this.deleteRecipe}/>
+        <RecipeContainer
+          recipes={this.filterRecipe()}
+          clickHandler={this.addRecipe}
+          searchHandler={this.searchHandler}
+          submitHandler={this.recipeSubmitHandler}
+          deleteRecipe={this.deleteRecipe}
+        />
         <RecipeFavorites
           recipes={this.state.favorites}
           clickHandler={this.removeRecipe}
