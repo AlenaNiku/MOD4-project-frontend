@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import RecipeContainer from './containers/RecipeContainer';
 import RecipeFavorites from './containers/RecipeFavorites';
+import Welcome from './components/Welcome'
 
 class App extends React.Component {
   state = {
@@ -101,6 +103,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Switch>
+          <Route path="/welcome" component={Welcome} /> 
+        </Switch>
         <RecipeContainer
           recipes={this.filterRecipe()}
           clickHandler={this.addRecipe}
