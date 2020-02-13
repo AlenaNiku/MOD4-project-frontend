@@ -32,7 +32,7 @@ import React from 'react'
    render() {
      return (
        <div>
-         <h3>New Recipe Form</h3>
+         <h1>NEW RECIPE FORM</h1>
          <form onSubmit={this.submitHandler}>
            <input
              type="text"
@@ -41,6 +41,7 @@ import React from 'react'
              value={this.state.name}
              onChange={this.changeHandler}
            ></input>
+           <br />
            <input
              type="text"
              name="image_url"
@@ -48,6 +49,7 @@ import React from 'react'
              value={this.state.image_url}
              onChange={this.changeHandler}
            ></input>
+           <br />
            <input
              type="text"
              name="description"
@@ -55,6 +57,7 @@ import React from 'react'
              value={this.state.description}
              onChange={this.changeHandler}
            ></input>
+           <br />
            <input type="submit"></input>
          </form>
        </div>
