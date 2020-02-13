@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Recipe = (props) => {
     let { recipe, clickHandler, deleteRecipe } = props    // destructured props
@@ -7,11 +8,12 @@ const Recipe = (props) => {
         <div className="tile">
             <h1>{recipe.name}</h1>
             <br />
-            <img alt="" src={recipe.image_url} />
+            <Link to={`/recipes/${props.recipe.id}`}>
+                <img alt="" src={recipe.image_url} />
+            </Link>
             <br />
             <p>{recipe.description}</p>
             <button onClick={ () => clickHandler(recipe) }>Favorites</button>
-            <button>See the Recipe</button>
             <button id="delete" onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button>
         </div>
     )

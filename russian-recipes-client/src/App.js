@@ -100,23 +100,34 @@ class App extends React.Component {
       });
   };
 
+
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route path="/welcome" component={Welcome} /> 
+          <Route path="/welcome" component={Welcome} />
+          <Route
+            path="/recipes"
+            render={() => (
+              <RecipeContainer
+                recipes={this.filterRecipe()}
+                clickHandler={this.addRecipe}
+                searchHandler={this.searchHandler}
+                submitHandler={this.recipeSubmitHandler}
+                deleteRecipe={this.deleteRecipe}
+              />
+            )}
+          />
+          <Route
+            path="/favorites"
+            render={() => (
+              <RecipeFavorites
+                recipes={this.state.favorites}
+                clickHandler={this.removeRecipe}
+              />
+            )}
+          />
         </Switch>
-        <RecipeContainer
-          recipes={this.filterRecipe()}
-          clickHandler={this.addRecipe}
-          searchHandler={this.searchHandler}
-          submitHandler={this.recipeSubmitHandler}
-          deleteRecipe={this.deleteRecipe}
-        />
-        <RecipeFavorites
-          recipes={this.state.favorites}
-          clickHandler={this.removeRecipe}
-        />
       </div>
     );
   }
