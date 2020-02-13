@@ -25,6 +25,7 @@ class App extends React.Component {
 
   // adding a recipe to favorites
   addRecipe = recipe => {
+    // console.log(recipe);
     this.setState({
       favorites: [...this.state.favorites, recipe] // sqare bracket notation means that we're looking for the value this evaluates to in the moment, not literal value
     });

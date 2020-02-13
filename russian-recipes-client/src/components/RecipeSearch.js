@@ -4,7 +4,7 @@ const RecipeSearch = (props) => {
     return (
         <form>
             <h1>SEARCH FOR YOUR RECIPE</h1>
-            <input type="text" placeholder="search recipes" value={props.searchTerm} onChange={props.searchHandler} />
+            <input type="textsearch" placeholder="search recipes" value={props.searchTerm} onChange={props.searchHandler} />
         </form>
 
     )

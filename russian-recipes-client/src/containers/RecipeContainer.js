@@ -14,10 +14,10 @@ const RecipeContainer = (props) => {
       <div className="recipe-container">
         <Switch>
 
-          <Route path="/recipes/:id" render={({ match }) => {
+          <Route path="/recipes/:id" render={({ match }) => {     
               let recipeId = parseInt(match.params.id)
               let recipeObj = props.recipes.find(recipe => recipe.id === recipeId)
-              console.log("recipeObj:", recipeObj);
+            //   console.log("recipeObj:", recipeObj);
               return <Recipe recipe={recipeObj} clickHandler={props.clickHandler}  deleteRecipe={props.deleteRecipe} /> 
           }} />
           <Route path="/recipes" render={() => {

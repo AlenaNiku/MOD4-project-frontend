@@ -3,6 +3,7 @@ import Recipe from '../components/Recipe'
 
 
 const RecipeFavorites = (props) => {
+    // console.log(props);
 
     const recipes = () => {
         return props.recipes.map(recipeObj => <li key={recipeObj.id}><Recipe recipe={recipeObj} clickHandler={props.clickHandler}/></li>)

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Recipe = (props) => {
     let { recipe, clickHandler, deleteRecipe } = props    // destructured props
-
+    
     return (
         <div className="tile">
             <h1>{recipe.name}</h1>
