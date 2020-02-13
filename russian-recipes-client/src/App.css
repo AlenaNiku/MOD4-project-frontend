@@ -27,7 +27,6 @@ h1 {
   font-size: 30px;
 }
 
-
 img {
   display: block;
   margin-left: auto;
@@ -38,11 +37,17 @@ img {
 }
 
 .recipe-container {
-  width: 45%;
-  float: left;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  padding: 1.5rem;
+  /* width: 45%;
+  float: left; */
 }
 
 .tile {
+  border: 2px solid #e7e7e7;
   background: white;
   border-radius: 1rem;
   padding: 1.5rem;
@@ -61,23 +66,26 @@ img {
   }
 }
 
+
+
+/* 
 .favorites-container {
   width: 45%;
   float: right;
   margin-right: 2%;
-}
+} */
 
-/* input[type=text] {
+input[type=text] {
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-} */
+}
 
 /* When the input field gets focus, change its width to 100% */
-/* input[type=text]:focus {
+input[type=text]:focus {
   width: 60%;
   font-size: large;
-} */
+}
 
 #delete {
   background-color: red;

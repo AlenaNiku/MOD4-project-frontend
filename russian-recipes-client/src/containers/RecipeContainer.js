@@ -23,7 +23,6 @@ const RecipeContainer = (props) => {
           <Route path="/recipes" render={() => {
               return (
                   <>
-                    <h1>Recipes</h1>
                     <NewRecipe submitHandler={props.submitHandler} />
                     <br />
                     <RecipeSearch
