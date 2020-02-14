@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
 import NewRecipe from '../components/NewRecipe'
+import RecipeShow from '../components/RecipeShow';
 
 const RecipeContainer = (props) => {
     // console.log("props:", props)
@@ -18,7 +19,7 @@ const RecipeContainer = (props) => {
               let recipeId = parseInt(match.params.id)
               let recipeObj = props.recipes.find(recipe => recipe.id === recipeId)
             //   console.log("recipeObj:", recipeObj);
-              return <Recipe recipe={recipeObj} clickHandler={props.clickHandler}  deleteRecipe={props.deleteRecipe} /> 
+              return <RecipeShow recipe={recipeObj} clickHandler={props.clickHandler}  deleteRecipe={props.deleteRecipe} /> 
           }} />
           <Route path="/recipes" render={() => {
               return (
