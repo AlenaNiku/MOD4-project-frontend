@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import RecipeContainer from './containers/RecipeContainer';
 import RecipeFavorites from './containers/RecipeFavorites';
@@ -105,32 +105,55 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Switch>
-          <Route path="/welcome" component={Welcome} />
-          <Route
-            path="/recipes"
-            render={() => (
-              <RecipeContainer
-                recipes={this.filterRecipe()}
-                clickHandler={this.addRecipe}
-                searchHandler={this.searchHandler}
-                submitHandler={this.recipeSubmitHandler}
-                deleteRecipe={this.deleteRecipe}
+      <Router>
+          <ul>
+            <li>
+              <Link to="/">Welcome</Link>
+            </li>
+            <li>
+              <Link to="/recipes">Recipes</Link>
+            </li>
+            {/* <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li> */}
+          </ul>
+
+              {/*
+              A <Switch> looks through all its children <Route>
+              elements and renders the first one whose path
+              matches the current URL. Use a <Switch> any time
+              you have multiple routes, but you want only one
+              of them to render at a time
+            */}
+
+        <div className="App">
+
+            <Switch>
+              <Route exact path="/" component={Welcome} />
+              <Route
+                path="/recipes"
+                render={() => (
+                  <RecipeContainer
+                    recipes={this.filterRecipe()}
+                    clickHandler={this.addRecipe}
+                    searchHandler={this.searchHandler}
+                    submitHandler={this.recipeSubmitHandler}
+                    deleteRecipe={this.deleteRecipe}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/favorites"
-            render={() => (
-              <RecipeFavorites
-                recipes={this.state.favorites}
-                clickHandler={this.removeRecipe}
+              <Route
+                path="/favorites"
+                render={() => (
+                  <RecipeFavorites
+                    recipes={this.state.favorites}
+                    clickHandler={this.removeRecipe}
+                  />
+                )}
               />
-            )}
-          />
-        </Switch>
-      </div>
+            </Switch>
+          </div>
+      </Router>
     );
   }
 }

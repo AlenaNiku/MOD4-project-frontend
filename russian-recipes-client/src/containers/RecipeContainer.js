@@ -15,7 +15,7 @@ const RecipeContainer = (props) => {
       <div className="recipe-container">
         <Switch>
 
-          <Route path="/recipes/:id" render={({ match }) => {     
+          <Route path="/recipes/:id" render={({ match }) => {       // prop that comes from BrowseRouter
               let recipeId = parseInt(match.params.id)
               let recipeObj = props.recipes.find(recipe => recipe.id === recipeId)
             //   console.log("recipeObj:", recipeObj);
