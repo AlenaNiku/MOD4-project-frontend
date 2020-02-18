@@ -110,12 +110,7 @@ input[type=text] {
   margin-top: 3px;
 }
 
-/* ul {
-  list-style-type: none;   
-  margin: 0;                
-  padding: 0;
-} */
-
+/* nav bar styling */
 ul {
   list-style-type: none;
   margin: 0;
@@ -146,10 +141,5 @@ li {
   border-right: 1px solid #bbb;
 }
 
-p {
-  font-size: x-large;
-  padding-left: 4em;
-  padding-right: 4em;
-}
 
 

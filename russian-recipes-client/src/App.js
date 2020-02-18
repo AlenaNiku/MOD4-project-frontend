@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import RecipeContainer from './containers/RecipeContainer';
 import RecipeFavorites from './containers/RecipeFavorites';
-import Welcome from './components/Welcome'
+import Welcome from './components/Welcome';
+import NewRecipe from './components/NewRecipe';
+
 
 class App extends React.Component {
   state = {
@@ -94,7 +96,7 @@ class App extends React.Component {
       body: JSON.stringify(recipe)
     })
       .then(resp => resp.json())
-      .then(recipe => {
+      .then(recipe => {   
         let newArray = [recipe, ...this.state.recipes];
         this.setState({
           recipes: newArray
@@ -113,9 +115,9 @@ class App extends React.Component {
             <li>
               <Link to="/recipes">Recipes</Link>
             </li>
-            {/* <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li> */}
+            <li>
+              <Link to="/create">Create your own Recipe</Link>
+            </li>
           </ul>
 
               {/*
@@ -129,7 +131,17 @@ class App extends React.Component {
         <div className="App">
 
             <Switch>
+
               <Route exact path="/" component={Welcome} />
+
+              <Route 
+                path="/create" 
+                render={() => (
+                <NewRecipe
+                submitHandler={this.recipeSubmitHandler} />
+                )}
+              />
+
               <Route
                 path="/recipes"
                 render={() => (
