@@ -34,7 +34,7 @@ import { Link } from 'react-router-dom';
    render() {
      return (
         <div className="newrecipe">
-          <h1>NEW RECIPE FORM</h1>
+          <h1 className="new">NEW RECIPE FORM</h1>
           <form onSubmit={this.submitHandler}>
             <input
               type="text"

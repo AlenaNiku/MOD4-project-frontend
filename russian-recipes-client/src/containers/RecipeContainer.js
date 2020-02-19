@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
-// import NewRecipe from '../components/NewRecipe'
 import RecipeShow from '../components/RecipeShow';
 
 const RecipeContainer = (props) => {
@@ -24,8 +23,6 @@ const RecipeContainer = (props) => {
           <Route path="/recipes" render={() => {
               return (
                   <>
-                    {/* <NewRecipe submitHandler={props.submitHandler} /> */}
-                    <br />
                     <RecipeSearch
                     searchTerm={props.searchTerm}
                     searchHandler={props.searchHandler}
