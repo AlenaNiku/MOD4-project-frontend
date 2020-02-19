@@ -33,7 +33,7 @@ import { Link } from 'react-router-dom';
 
    render() {
      return (
-        <div>
+        <div className="newrecipe">
           <h1>NEW RECIPE FORM</h1>
           <form onSubmit={this.submitHandler}>
             <input

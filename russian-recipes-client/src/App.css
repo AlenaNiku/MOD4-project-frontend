@@ -142,4 +142,58 @@ li {
 }
 
 
+body, html {
+  height: 100%;
+}
+
+.welcome {
+  background-image: url("https://previews.123rf.com/images/fascinadora/fascinadora1804/fascinadora180400021/99452752-russian-food-on-wooden-background-assortment-dishes-of-russian-cuisine-borscht-pelmeni-herring-marin.jpg");
+  height: 100vh;
+  width: auto;
+  padding: 5%;
+  background-size: cover;
+  font-weight: 900;
+  
+}
+
+div.welcome p {
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+div.welcome h1 {
+  font-size: 400%; 
+  color: whitesmoke;
+  margin-top: 15%;
+  font-weight: 900;
+}
+
+div.welcome a {
+  color: whitesmoke;
+  font-size: x-large;
+}
+
+.newrecipe a {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.newrecipe input {
+  padding: 3%;
+  font-size: x-large;
+}
+
+
+
+
+
 

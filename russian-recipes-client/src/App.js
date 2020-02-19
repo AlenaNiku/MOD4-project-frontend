@@ -108,7 +108,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-          <ul>
+          <ul className="sticky">
             <li>
               <Link to="/">Welcome</Link>
             </li>
