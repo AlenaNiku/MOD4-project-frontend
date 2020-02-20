@@ -10,10 +10,12 @@ const RecipeFavorites = (props) => {
     }
     return(
         <>
-        <h1 className="fave">Favorites</h1>
-        <div className="favorites-container">
-            {recipes()}
-        </div>
+            <div className="fave">
+                <h1>FAVORITES</h1>
+            </div>
+            <div className="favorites-container">
+                {recipes()}
+            </div>
         </>
     )
 }
