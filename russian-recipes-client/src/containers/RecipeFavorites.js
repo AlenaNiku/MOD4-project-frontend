@@ -6,13 +6,15 @@ const RecipeFavorites = (props) => {
     // console.log(props);
 
     const recipes = () => {
-        return props.recipes.map(recipeObj => <li key={recipeObj.id}><Recipe recipe={recipeObj} clickHandler={props.clickHandler}/></li>)
+        return props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={props.clickHandler}/>)
     }
     return(
+        <>
+        <h1 className="fave">Favorites</h1>
         <div className="favorites-container">
-            <h1>Favorites</h1>
-            <ul>{recipes()}</ul>
+            {recipes()}
         </div>
+        </>
     )
 }
 

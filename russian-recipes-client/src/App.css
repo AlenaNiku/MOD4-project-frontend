@@ -28,12 +28,28 @@ img {
 
 .recipe-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-auto-rows: auto;
   grid-gap: 1rem;
   padding: 1.5rem;
 }
+
+div.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  padding: 1.5rem;
+}
+
+.fave {
+  font-family: 'Pacifico', cursive;
+  background-color: white;
+  font-size: xx-large;
+}
+
 
 .tile {
   border: 2px solid #e7e7e7;

@@ -27,15 +27,16 @@ class App extends React.Component {
   }
 
   // adding a recipe to favorites
-  addRecipe = recipe => {
+  addRecipe = (recipe) => {
     // console.log(recipe);
     this.setState({
       favorites: [...this.state.favorites, recipe] // sqare bracket notation means that we're looking for the value this evaluates to in the moment, not literal value
     });
+    console.log(this.state.favorites)
   };
 
   // removing the recipe from favorites
-  removeRecipe = recipe => {
+  removeRecipe = (recipe) => {
     let favorites = [...this.state.favorites].filter(
       RecipeObj => RecipeObj.id !== recipe.id
     );
@@ -43,7 +44,7 @@ class App extends React.Component {
   };
 
   // deleting the recipe   (The filter() method creates a new array with all elements that pass the test implemented by the provided                                   function.)
-  deleteRecipe = recipe => {
+  deleteRecipe = (recipe) => {
     // console.log(recipe);
     fetch(`http://localhost:3001/recipes/${recipe.id}`, {
       method: "DELETE",
@@ -60,7 +61,7 @@ class App extends React.Component {
   };
 
   // Search form onChange Function
-  searchHandler = e => {
+  searchHandler = (e) => {
     // console.log(e.target.value);
     let searchTerm = e.target.value;
     this.setState({
@@ -117,6 +118,9 @@ class App extends React.Component {
             </li>
             <li>
               <Link to="/create">Create your own Recipe</Link>
+            </li>
+            <li>
+              <Link to="/favorites">Favorites</Link>
             </li>
           </ul>
 
