@@ -9,22 +9,22 @@ import NewRecipe from './components/NewRecipe';
 
 class App extends React.Component {
   state = {
-    recipes: [],
+    // recipes: [],
     favorites: [],
     searchTerm: ""
   };
 
   // GET the recipes
-  componentDidMount() {
-    fetch("http://localhost:3001/recipes")
-      .then(resp => resp.json())
-      .then(data =>
-        // console.log(data)
-        this.setState({
-          recipes: data
-        })
-      );
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3001/recipes")
+  //     .then(resp => resp.json())
+  //     .then(data =>
+  //       // console.log(data)
+  //       this.setState({
+  //         recipes: data
+  //       })
+  //     );
+  // }
 
   // adding a recipe to favorites
   addRecipe = (recipe) => {
@@ -56,6 +56,7 @@ class App extends React.Component {
       this.setState({ 
         recipes: Newrecipes
        });
+      alert("Are you sure?")
     })   
   };
 
@@ -69,11 +70,11 @@ class App extends React.Component {
   };
 
   // filter the recipes based on the chararcter the user types in
-  filterRecipe = () => {
-    return this.state.recipes.filter(recipeObj =>
-      recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
-    );
-  };
+  // filterRecipe = () => {
+  //   return this.state.recipes.filter(recipeObj =>
+  //     recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
+  //   );
+  // };
 
   // Form Submit Functions
   recipeSubmitHandler = recipe => {
@@ -149,7 +150,7 @@ class App extends React.Component {
                 path="/recipes"
                 render={() => (
                   <RecipeContainer
-                    recipes={this.filterRecipe()}
+                    // recipes={this.filterRecipe()}
                     clickHandler={this.addRecipe}
                     searchHandler={this.searchHandler}
                     submitHandler={this.recipeSubmitHandler}

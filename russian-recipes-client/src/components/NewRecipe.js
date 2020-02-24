@@ -31,6 +31,8 @@ import { Link } from 'react-router-dom';
      });  
    };
 
+
+
    render() {
      return (
         <div className="newrecipe">
@@ -63,11 +65,11 @@ import { Link } from 'react-router-dom';
             <input type="submit"></input>
           </form>
           <br />
-         <Link to='/recipes' > SEE ALL THE RECIPES </Link>
-        </div>
-     );
-   }
- }
+         <Link to="/recipes"> SEE ALL THE RECIPES </Link>
+      </div>
+    );
+  }
+}
 
 export default NewRecipe
 
