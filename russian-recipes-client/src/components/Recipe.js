@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Recipe = (props) => {
-    let { recipe, clickHandler, deleteRecipe } = props    // destructured props
+const Recipe = ({ recipe }) => {
+    // console.log(props)
+    // let { recipe, clickHandler, deleteRecipe } = props    // destructured props, when we had them recieved from parent component
     
     return (
         <div className="tile">
             <h1>{recipe.name}</h1>
             <br />
-            <Link to={`/recipes/${props.recipe.id}`}>
+            <Link to={`/recipes/${recipe.id}`}>
                 <img alt="" src={recipe.image_url} />
             </Link>
             <br />
             <p>{recipe.description}</p>
-            <button onClick={ () => clickHandler(recipe) }>Favorites</button>
-            <button id="delete" onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button>
+            {/* <button onClick={ () => clickHandler(recipe) }>Favorites</button> */}
+            {/* <button id="delete" onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button> */}
         </div>
     )
 

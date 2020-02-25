@@ -7,13 +7,9 @@ import thunk from 'redux-thunk';
 import reducer from './reducer'
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker'; 
 
-let defaultState = {
-    recipesArray: []
-}
 
-let reduxStore = createStore(reducer, defaultState, applyMiddleware(thunk));       // reducer manipulates and makes changes to our state tree
+let reduxStore = createStore(reducer, applyMiddleware(thunk));       // reducer manipulates and makes changes to our state tree
 
 ReactDOM.render(
   <Provider store={reduxStore}>
@@ -24,7 +20,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.unregister();
+
 
 // ROUTER
 // 1. npm install react-router-dom

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import { postRecipe } from '../actions'
 
  class NewRecipe extends React.Component {
    state = {
@@ -11,7 +12,7 @@ import { Link } from 'react-router-dom';
 
    // to capture the value that the user typed in
    // update our state with that value
-   changeHandler = e => {
+   changeHandler = (e) => {
      let value = e.target.value;
      this.setState({
        // grab the name of the input that the change is happening to
@@ -21,9 +22,9 @@ import { Link } from 'react-router-dom';
      });
    };
 
-   submitHandler = e => {
+   handleSubmit = (e) => {
      e.preventDefault();
-     this.props.submitHandler(this.state); // bc this.state is the whole object = the recipe
+     this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe
      this.setState({
        name: "",
        image_url: "",
@@ -37,9 +38,9 @@ import { Link } from 'react-router-dom';
      return (
         <div className="newrecipe">
           <h1 className="new">NEW RECIPE FORM</h1>
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={ e => this.handleSubmit(e) }> 
             <input
-              type="text"
+              type="text" 
               name="name" // name the inputs the same as keys in state
               placeholder="name"
               value={this.state.name}
@@ -62,7 +63,7 @@ import { Link } from 'react-router-dom';
               onChange={this.changeHandler}
             ></input>
             <br />
-            <input type="submit"></input>
+            <button type="submit">SUBMIT</button>
           </form>
           <br />
          <Link to="/recipes"> SEE ALL THE RECIPES </Link>
@@ -71,11 +72,19 @@ import { Link } from 'react-router-dom';
   }
 }
 
-export default NewRecipe
+const mapDispatchToProps = (dispatch) => {
+  return { postRecipe: recipe => dispatch(postRecipe(recipe)) }
+}
+
+export default connect(null, mapDispatchToProps)(NewRecipe);
 
 
-// we want the Form to be rendered by the App container (bc we're creating a new recipe and adding it to the list of all the recipes we're fetching inside of this component)
 
 // we always want the form to be a controlled component (by adding values (and onChange event listeners) on inputs that point to smth dynamic that can change, smth in STATE => we have to refactor our component into a class based component). BC it's a class based component now we need render and we're putting the return into render bc it's responsible for returning the JSX
-
 // the values should point to smth in state, that can change based on user input and fire a re-render
+
+// CONNECTING TO THE REDUX STORE
+// First, we want to import connect from react-redux and modify our export statement. In this component, we are not currently concerned with writing a mapStateToProps() function (the first argument passed to connect) as this component doesn't need any state. Since we only need to dispatch an action here and we are not getting information from our store, we can use null instead of mapStateToProps as the first argument.
+// On submission of the form in our component, we want to send the value we've captured in the local state to be added to our Redux store. With the above set up, addTodo becomes a function in props that is able take arguments. From the Redux docs, we know that needs to be a plain javascript object with a type key describing the type of action. We also need to include the data from the form - in this case, we'll call that key 'payload'.
+// When handleSubmit() is called, whatever is currently stored in this.state will be sent off to our reducer via our dispatched action. 
+
