@@ -8,8 +8,13 @@ import reducer from './reducer'
 import './index.css';
 import App from './App';
 
+let defaultState = {
+  recipesArray: [],
+  recipe: {},
+//   searchTerm: ""
+};
 
-let reduxStore = createStore(reducer, applyMiddleware(thunk));       // reducer manipulates and makes changes to our state tree
+let reduxStore = createStore(reducer, defaultState, applyMiddleware(thunk));       // reducer manipulates and makes changes to our state tree
 
 ReactDOM.render(
   <Provider store={reduxStore}>

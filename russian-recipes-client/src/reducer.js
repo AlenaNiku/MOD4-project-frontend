@@ -1,21 +1,16 @@
 import { combineReducers } from 'redux';
 
-// let defaultState = {
-//   recipesArray: [],
-// //   searchTerm: ""
-// };
 
-function reducer(state = { recipesArray: [] }, action) {
+
+function reducer(state = { recipesArray: [], recipe: {} }, action) {
   switch (action.type) {
 
     case "FETCH_RECIPES":
       return { ...state, recipesArray: action.payload }; 
 
-    // case "POST_RECIPE":
-    //   return {
-    //     ...state,
-    //     recipesArray: [...defaultState.recipesArray, action.recipe]
-    //   };
+    case "POST_RECIPE":
+      return { recipe: action.payload, ...state };
+        
 
     default:
       return state;
