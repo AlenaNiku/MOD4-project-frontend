@@ -12,8 +12,6 @@ const RecipeFavorites = (props) => {
             // clickHandler={props.clickHandler}
           
 
-    // let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} addRecipes={this.props.addRecipes} />)
-
     return(
         <>
             <div className="fave">

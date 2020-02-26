@@ -10,7 +10,8 @@ const Recipe = (props) => {
   }
 
     const handleAddToFaves = () => {
-        props.addRecipes(props.recipe.id)
+        props.addRecipes(props.recipe)
+        // console.log(props.recipe)
     }
 
     

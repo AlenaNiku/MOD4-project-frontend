@@ -43,7 +43,6 @@ function deleteRecipe(id) {
 }
 
 function addRecipes(recipe) {
-    // console.log(recipe)
     return ({ type: "ADD_RECIPE", payload: recipe });
         
 }

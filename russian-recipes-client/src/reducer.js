@@ -21,7 +21,6 @@ function reducer(state = { recipesArray: [], recipe: {}, recipeFaves: [] }, acti
 
         case "ADD_RECIPE":
            const recipeFave = action.payload
-           console.log("recipeFave :", recipeFave)
             return {
               ...state,
               recipeFaves: [recipeFave, ...state.recipeFaves]

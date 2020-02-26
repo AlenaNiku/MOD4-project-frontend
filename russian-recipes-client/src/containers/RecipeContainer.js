@@ -63,7 +63,7 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchRecipes: () => dispatch(fetchRecipes()),
     deleteRecipe: id => dispatch(deleteRecipe(id)),
-    addRecipes: id => dispatch(addRecipes(id))
+    addRecipes: recipe => dispatch(addRecipes(recipe))
   }; // this dispatch gets intercepted by thunk
 }
 
