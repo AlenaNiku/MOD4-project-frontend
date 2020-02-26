@@ -42,8 +42,14 @@ function deleteRecipe(id) {
     }
 }
 
+function addRecipes(recipe) {
+    // console.log(recipe)
+    return ({ type: "ADD_RECIPE", payload: recipe });
+        
+}
 
-export { fetchRecipes, postRecipe, deleteRecipe }; 
+
+export { fetchRecipes, postRecipe, deleteRecipe, addRecipes }; 
 
 
 // In addition of ACTION having a TYPE, it should also have a second argument of PAYLOAD (which will contain our data)

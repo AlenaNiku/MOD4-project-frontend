@@ -124,6 +124,8 @@ const App = (props) => {
               <Route path="/recipes" component={RecipeContainer} />  
 
               <Route path="/create" component={NewRecipe} />
+
+              <Route path="/favorites" component={RecipeFavorites} />
     
 
 

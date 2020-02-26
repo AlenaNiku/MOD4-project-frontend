@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRecipes, deleteRecipe } from '../actions'
+import { fetchRecipes, deleteRecipe, addRecipes } from '../actions'
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
 import RecipeShow from '../components/RecipeShow';
@@ -15,7 +15,7 @@ class RecipeContainer extends React.Component {
 
     render() {
 
-      let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} />)
+      let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} addRecipes={this.props.addRecipes} />)
   
       return (
         <div className="recipe-container">
@@ -60,10 +60,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   // console.log("working?")
-  return { fetchRecipes: () => dispatch(fetchRecipes()),
-           deleteRecipe: (id) => dispatch(deleteRecipe(id)) 
-          }; // this dispatch gets intercepted by thunk
+  return {
+    fetchRecipes: () => dispatch(fetchRecipes()),
+    deleteRecipe: id => dispatch(deleteRecipe(id)),
+    addRecipes: id => dispatch(addRecipes(id))
+  }; // this dispatch gets intercepted by thunk
 }
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer);

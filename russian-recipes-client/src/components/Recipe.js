@@ -5,9 +5,13 @@ const Recipe = (props) => {
     // console.log(props)
     // let { recipe, clickHandler, deleteRecipe } = props    // destructured props
     
-   const handleOnClick = () => {
-     props.deleteRecipe(props.recipe.id)
+    const handleOnClick = () => {
+        props.deleteRecipe(props.recipe.id)
   }
+
+    const handleAddToFaves = () => {
+        props.addRecipes(props.recipe.id)
+    }
 
     
     return (
@@ -19,7 +23,7 @@ const Recipe = (props) => {
             </Link>
             <br />
             <p>{props.recipe.description}</p>
-            {/* <button onClick={ () => clickHandler(recipe) }>Favorites</button> */}
+            <button onClick={ () => handleAddToFaves() }> Favorites </button>
             <button id="delete" onClick={ () => handleOnClick()}> Delete Recipe </button>
         </div>
     )

@@ -2,22 +2,31 @@ import { combineReducers } from 'redux';
 
 
 
-function reducer(state = { recipesArray: [], recipe: {} }, action) {
+function reducer(state = { recipesArray: [], recipe: {}, recipeFaves: [] }, action) {
     switch (action.type) {
 
         case "FETCH_RECIPES":
-        return { ...state, recipesArray: action.payload };
+            return { ...state, recipesArray: action.payload };
 
         case "POST_RECIPE":
 
         const recipe = action.payload
-        return { ...state,
+            return { ...state,
                 recipesArray: [recipe, ...state.recipesArray] };
 
         case "DELETE_RECIPE":
         
         const recipes = state.recipesArray.filter(recipe => recipe.id !== action.id)
-        return { ...state, recipes };
+            return { ...state, recipes };
+
+        case "ADD_RECIPE":
+           const recipeFave = action.payload
+           console.log("recipeFave :", recipeFave)
+            return {
+              ...state,
+              recipeFaves: [recipeFave, ...state.recipeFaves]
+            };
+
 
 
         default:

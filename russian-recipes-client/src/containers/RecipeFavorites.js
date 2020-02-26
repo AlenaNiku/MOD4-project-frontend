@@ -1,26 +1,35 @@
 import React from 'react';
-import Recipe from '../components/Recipe'
+import Recipe from '../components/Recipe';
+import { connect } from 'react-redux';
+
 
 
 const RecipeFavorites = (props) => {
-    // console.log(props);
+    // console.log("props:", props)
 
-    const recipes = () => {
-        return props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={props.clickHandler}/>)
-    }
+    let recipesFaves = props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} />)
+            
+            // clickHandler={props.clickHandler}
+          
+
+    // let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} addRecipes={this.props.addRecipes} />)
+
     return(
         <>
             <div className="fave">
                 <h1>FAVORITES</h1>
             </div>
             <div className="favorites-container">
-                {recipes()}
+                {recipesFaves}
             </div>
         </>
     )
 }
 
+function mapStateToProps(state) {
+  return { recipes: state.recipeFaves };
+}
 
-export default RecipeFavorites 
 
-// the clickHandler here is recived through the prop and points to removeRecipe function inside the parent App component
+export default connect(mapStateToProps)(RecipeFavorites) 
+
