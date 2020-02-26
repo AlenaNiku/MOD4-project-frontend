@@ -1,27 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-const Recipe = ({ recipe }) => {
+const Recipe = (props) => {
     // console.log(props)
-    // let { recipe, clickHandler, deleteRecipe } = props    // destructured props, when we had them recieved from parent component
+    // let { recipe, clickHandler, deleteRecipe } = props    // destructured props
+    
+   const handleOnClick = () => {
+     props.deleteRecipe(props.recipe.id)
+  }
+
     
     return (
         <div className="tile">
-            <h1>{recipe.name}</h1>
+            <h1>{props.recipe.name}</h1>
             <br />
-            <Link to={`/recipes/${recipe.id}`}>
-                <img alt="" src={recipe.image_url} />
+            <Link to={`/recipes/${props.recipe.id}`}>
+                <img alt="" src={props.recipe.image_url} />
             </Link>
             <br />
-            <p>{recipe.description}</p>
+            <p>{props.recipe.description}</p>
             {/* <button onClick={ () => clickHandler(recipe) }>Favorites</button> */}
-            {/* <button id="delete" onClick={ () => deleteRecipe(recipe) }>Delete Recipe</button> */}
+            <button id="delete" onClick={ () => handleOnClick()}> Delete Recipe </button>
         </div>
     )
 
 }
 
+
 export default Recipe
+
+// Sticking with our container vs presentational set up, we don't want to load our presentational Recipe component up with logic. RecipeContainer is where we're connected to Redux, so we'll write in a new mapDispatchToProps() function to include an action there.
 
 
 // wrap the clickHAndler in an anonymous function, otherwise it will always fire when rendered, as opposed to only when clicked 

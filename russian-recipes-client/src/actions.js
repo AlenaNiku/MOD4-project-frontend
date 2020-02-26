@@ -23,14 +23,27 @@ function postRecipe(recipe) {
             body: JSON.stringify(recipe)
           })
             .then(resp => resp.json())
-            .then(data => {
+            .then(recipe => {
               dispatch({ type: "POST_RECIPE", payload: recipe });
             });
     }
 }
 
+function deleteRecipe(id) {
+    return function(dispatch) {
+        fetch(`http://localhost:3001/recipes/${id}`, {
+            method: "DELETE"
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch({ type: "DELETE_RECIPE", payload: data });
+            alert("Are you sure?")
+        });
+    }
+}
 
-export { fetchRecipes, postRecipe }; 
+
+export { fetchRecipes, postRecipe, deleteRecipe }; 
 
 
 // In addition of ACTION having a TYPE, it should also have a second argument of PAYLOAD (which will contain our data)

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRecipes } from '../actions'
+import { fetchRecipes, deleteRecipe } from '../actions'
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
 import RecipeShow from '../components/RecipeShow';
 
 
-class  RecipeContainer extends React.Component {
+class RecipeContainer extends React.Component {
 
     componentDidMount() {
       this.props.fetchRecipes()
@@ -15,30 +15,38 @@ class  RecipeContainer extends React.Component {
 
     render() {
 
-      let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} clickHandler={this.props.clickHandler}  deleteRecipe={this.props.deleteRecipe} />)
+      let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} />)
   
       return (
         <div className="recipe-container">
           <Switch>
-  
-            <Route path="/recipes/:id" render={({ match }) => {       // prop that comes from BrowseRouter
-                let recipeId = parseInt(match.params.id)
-                let recipeObj = this.props.recipes.find(recipe => recipe.id === recipeId)
-              //   console.log("recipeObj:", recipeObj);
-                return <RecipeShow recipe={recipeObj} clickHandler={this.props.clickHandler}  deleteRecipe={this.props.deleteRecipe} /> 
-            }} />
-            <Route path="/recipes" render={() => {
+            <Route
+              path="/recipes/:id"
+              render={({ match }) => {
+                // prop that comes from BrowseRouter
+                let recipeId = parseInt(match.params.id);
+                let recipeObj = this.props.recipes.find(
+                  recipe => recipe.id === recipeId
+                );
+                //   console.log("recipeObj:", recipeObj);
+                return <RecipeShow recipe={recipeObj} />;
+              }}
+            />
+            <Route
+              path="/recipes"
+              render={() => {
                 return (
-                    <>
-                      <RecipeSearch
+                  <>
+                    <RecipeSearch
                       searchTerm={this.props.searchTerm}
                       searchHandler={this.props.searchHandler}
-                      />
-                      <br />
-                      {recipes}
-                    </>
-                )
-            }} />
+                    />
+                    <br />
+                    {recipes}
+                  </>
+                );
+              }}
+            />           
           </Switch>
         </div>
       );
@@ -52,7 +60,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   // console.log("working?")
-  return { fetchRecipes: () => dispatch(fetchRecipes()) }; // this dispatch gets intercepted by thunk
+  return { fetchRecipes: () => dispatch(fetchRecipes()),
+           deleteRecipe: (id) => dispatch(deleteRecipe(id)) 
+          }; // this dispatch gets intercepted by thunk
 }
 
 

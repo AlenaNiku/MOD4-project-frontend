@@ -24,7 +24,7 @@ import { postRecipe } from '../actions'
 
    handleSubmit = (e) => {
      e.preventDefault();
-     this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe
+     this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe // CALLING ACTION HERE
      this.setState({
        name: "",
        image_url: "",
