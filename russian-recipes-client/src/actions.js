@@ -47,8 +47,15 @@ function addRecipes(recipe) {
         
 }
 
+function filterRecipes(recipe) {
 
-export { fetchRecipes, postRecipe, deleteRecipe, addRecipes }; 
+    return ({ type: "FILTER_RECIPES", payload: recipe})
+}
+
+
+
+
+export { fetchRecipes, postRecipe, deleteRecipe, addRecipes, filterRecipes }; 
 
 
 // In addition of ACTION having a TYPE, it should also have a second argument of PAYLOAD (which will contain our data)

@@ -1,57 +1,67 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRecipes, deleteRecipe, addRecipes } from '../actions'
+import { fetchRecipes, deleteRecipe, addRecipes, filterRecipes } from '../actions'
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
 import RecipeShow from '../components/RecipeShow';
 
 
+
 class RecipeContainer extends React.Component {
-
-    componentDidMount() {
-      this.props.fetchRecipes()
-    }
-
-    render() {
-
-      let recipes = this.props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} deleteRecipe={this.props.deleteRecipe} addRecipes={this.props.addRecipes} />)
-  
-      return (
-        <div className="recipe-container">
-          <Switch>
-            <Route
-              path="/recipes/:id"
-              render={({ match }) => {
-                // prop that comes from BrowseRouter
-                let recipeId = parseInt(match.params.id);
-                let recipeObj = this.props.recipes.find(
-                  recipe => recipe.id === recipeId
-                );
-                //   console.log("recipeObj:", recipeObj);
-                return <RecipeShow recipe={recipeObj} />;
-              }}
-            />
-            <Route
-              path="/recipes"
-              render={() => {
-                return (
-                  <>
-                    <RecipeSearch
-                      searchTerm={this.props.searchTerm}
-                      searchHandler={this.props.searchHandler}
-                    />
-                    <br />
-                    {recipes}
-                  </>
-                );
-              }}
-            />           
-          </Switch>
-        </div>
-      );
-    }
+  componentDidMount() {
+    this.props.fetchRecipes();
   }
+
+  // Search form onChange Function
+  // searchHandler = e => {
+  //   console.log(e.target.value);
+  //   let searchTerm = e.target.value;
+  //   this.filterRecipes(searchTerm);
+  // };
+
+  render() {
+    let recipes = this.props.recipes.map(recipeObj => (
+      <Recipe
+        key={recipeObj.id}
+        recipe={recipeObj}
+        deleteRecipe={this.props.deleteRecipe}
+        addRecipes={this.props.addRecipes}
+      />
+    ));
+
+    return (
+      <div className="recipe-container">
+        <Switch>
+          <Route
+            path="/recipes/:id"
+            render={({ match }) => {
+              // prop that comes from BrowseRouter
+              let recipeId = parseInt(match.params.id);
+              let recipeObj = this.props.recipes.find(
+                recipe => recipe.id === recipeId
+              );
+              //   console.log("recipeObj:", recipeObj);
+              return <RecipeShow recipe={recipeObj} />;
+            }}
+          />
+          <Route
+            path="/recipes"
+            render={() => {
+              return (
+                <>
+                  <RecipeSearch />
+                  <br />
+                  {recipes}
+                </>
+              );
+            }}
+          />
+        </Switch>
+      </div>
+    );
+  }
+}
 
 
 function mapStateToProps(state) {
@@ -63,7 +73,8 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchRecipes: () => dispatch(fetchRecipes()),
     deleteRecipe: id => dispatch(deleteRecipe(id)),
-    addRecipes: recipe => dispatch(addRecipes(recipe))
+    addRecipes: recipe => dispatch(addRecipes(recipe)),
+    filterRecipes: recipe => dispatch(filterRecipes(recipe))
   }; // this dispatch gets intercepted by thunk
 }
 

@@ -2,35 +2,48 @@ import { combineReducers } from 'redux';
 
 
 
-function reducer(state = { recipesArray: [], recipe: {}, recipeFaves: [] }, action) {
-    switch (action.type) {
+function reducer(
+  state = { recipesArray: [], recipe: {}, recipeFaves: [], searchTerm: "" },
+  action
+) {
+  switch (action.type) {
+    case "FETCH_RECIPES":
+      return { ...state, recipesArray: action.payload };
 
-        case "FETCH_RECIPES":
-            return { ...state, recipesArray: action.payload };
+    case "POST_RECIPE":
+      const recipe = action.payload;
+      return { ...state, recipesArray: [recipe, ...state.recipesArray] };
 
-        case "POST_RECIPE":
+    case "DELETE_RECIPE":
+      const recipes = state.recipesArray.filter(
+        recipe => recipe.id !== action.id
+      );
+      return { ...state, recipes };
 
-        const recipe = action.payload
-            return { ...state,
-                recipesArray: [recipe, ...state.recipesArray] };
+    case "ADD_RECIPE":
+      const recipeFave = action.payload;
+      return {
+        ...state,
+        recipeFaves: [recipeFave, ...state.recipeFaves]
+      };
 
-        case "DELETE_RECIPE":
-        
-        const recipes = state.recipesArray.filter(recipe => recipe.id !== action.id)
-            return { ...state, recipes };
+    case "FILTER_RECIPES":
+        const filteredArray = state.recipesArray.filter(recipeObj =>
+            recipeObj.name.toUpperCase().includes(state.searchTerm.toUpperCase()))
+        return {
+            ...state, recipesArray: filteredArray
+        }
 
-        case "ADD_RECIPE":
-           const recipeFave = action.payload
-            return {
-              ...state,
-              recipeFaves: [recipeFave, ...state.recipeFaves]
-            };
+    // filter the recipes based on the chararcter the user types in
+    // filterRecipe = () => {
+    //   return this.state.recipes.filter(recipeObj =>
+    //     recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
+    //   );
+    // };
 
-
-
-        default:
-        return state;
-    }
+    default:
+      return state;
+  }
 };
 
 

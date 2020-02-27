@@ -8,8 +8,57 @@ import NewRecipe from './components/NewRecipe';
 
 
 const App = (props) => {
+ 
+    return (
+      <Router>
+          <ul>
+            <li>
+              <Link to="/">Welcome</Link>
+            </li>
+            <li>
+              <Link to="/recipes">Recipes</Link>
+            </li>
+            <li>
+              <Link to="/create">Create your own Recipe</Link>
+            </li>
+            <li>
+              <Link to="/favorites">Favorites</Link>
+            </li>
+          </ul>
 
-  // adding a recipe to favorites
+              {/*
+              A <Switch> looks through all its children <Route>
+              elements and renders the first one whose path
+              matches the current URL. Use a <Switch> any time
+              you have multiple routes, but you want only one
+              of them to render at a time
+            */}
+
+        <div className="App">
+
+            <Switch>
+
+              <Route exact path="/" component={Welcome} />
+
+              <Route path="/recipes" component={RecipeContainer} />  
+
+              <Route path="/create" component={NewRecipe} />
+
+              <Route path="/favorites" component={RecipeFavorites} />
+
+
+            </Switch>
+          </div>
+      </Router>
+    );
+}
+
+
+export default App;
+
+
+
+ // adding a recipe to favorites
   // addRecipe = (recipe) => {
     // console.log(recipe);
     // this.setState({
@@ -25,7 +74,7 @@ const App = (props) => {
     // this.setState({ favorites });
   // };
 
-  // deleting the recipe   (The filter() method creates a new array with all elements that pass the test implemented by the provided                                   function.)
+  // deleting the recipe   (The filter() method creates a new array with all elements that pass the test implemented by the provided        function.)
   // deleteRecipe = (recipe) => {
     // console.log(recipe);
   //   fetch(`http://localhost:3001/recipes/${recipe.id}`, {
@@ -87,63 +136,4 @@ const App = (props) => {
   //       });
   //     });
   // };
-
-
- 
-    return (
-      <Router>
-          <ul>
-            <li>
-              <Link to="/">Welcome</Link>
-            </li>
-            <li>
-              <Link to="/recipes">Recipes</Link>
-            </li>
-            <li>
-              <Link to="/create">Create your own Recipe</Link>
-            </li>
-            <li>
-              <Link to="/favorites">Favorites</Link>
-            </li>
-          </ul>
-
-              {/*
-              A <Switch> looks through all its children <Route>
-              elements and renders the first one whose path
-              matches the current URL. Use a <Switch> any time
-              you have multiple routes, but you want only one
-              of them to render at a time
-            */}
-
-        <div className="App">
-
-            <Switch>
-
-              <Route exact path="/" component={Welcome} />
-
-              <Route path="/recipes" component={RecipeContainer} />  
-
-              <Route path="/create" component={NewRecipe} />
-
-              <Route path="/favorites" component={RecipeFavorites} />
-    
-
-
-              {/* <Route
-                path="/favorites"
-                render={() => (
-                  <RecipeFavorites
-                    recipes={this.state.favorites}
-                    clickHandler={this.removeRecipe}
-                  />
-                )}
-              /> */}
-            </Switch>
-          </div>
-      </Router>
-    );
-}
-
-
-export default App;
 
