@@ -47,15 +47,33 @@ function addRecipes(recipe) {
         
 }
 
-function filterRecipes(recipe) {
+// function filterRecipes(recipe) {
 
-    return ({ type: "FILTER_RECIPES", payload: recipe})
+//     return ({ type: "FILTER_RECIPES", payload: recipe})
+// }
+
+export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
+    return dispatch({
+      type: "FILTER_RECIPES",
+      payload: {
+        searchTerm: searchTerm, 
+        recipes:
+          searchTerm === ""
+            ? recipes
+            : recipes.filter(recipe =>
+                recipe.name
+                  .toUpperCase()
+                  .includes(searchTerm.toUpperCase())
+              )
+      }
+    });
 }
 
+// we want to filter recipes based on the searchterm
+
+export { fetchRecipes, postRecipe, deleteRecipe, addRecipes }; 
 
 
-
-export { fetchRecipes, postRecipe, deleteRecipe, addRecipes, filterRecipes }; 
 
 
 // In addition of ACTION having a TYPE, it should also have a second argument of PAYLOAD (which will contain our data)

@@ -65,7 +65,7 @@ class RecipeContainer extends React.Component {
 
 
 function mapStateToProps(state) {
-  return { recipes: state.recipesArray };
+  return { recipes: state.filteredRecipes };
 }
 
 function mapDispatchToProps(dispatch) {

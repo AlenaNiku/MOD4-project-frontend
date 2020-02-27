@@ -3,12 +3,12 @@ import { combineReducers } from 'redux';
 
 
 function reducer(
-  state = { recipesArray: [], recipe: {}, recipeFaves: [], searchTerm: "" },
+  state = { recipesArray: [], recipe: {}, recipeFaves: [], searchTerm: "", filteredRecipes: [] },
   action
 ) {
   switch (action.type) {
     case "FETCH_RECIPES":
-      return { ...state, recipesArray: action.payload };
+      return { ...state, recipesArray: action.payload, filteredRecipes: action.payload   };
 
     case "POST_RECIPE":
       const recipe = action.payload;
@@ -28,19 +28,10 @@ function reducer(
       };
 
     case "FILTER_RECIPES":
-        const filteredArray = state.recipesArray.filter(recipeObj =>
-            recipeObj.name.toUpperCase().includes(state.searchTerm.toUpperCase()))
         return {
-            ...state, recipesArray: filteredArray
+            ...state, filteredRecipes: action.payload.recipes, searchTerm: action.payload.searchTerm
         }
-
-    // filter the recipes based on the chararcter the user types in
-    // filterRecipe = () => {
-    //   return this.state.recipes.filter(recipeObj =>
-    //     recipeObj.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())
-    //   );
-    // };
-
+ 
     default:
       return state;
   }

@@ -1,16 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { filterRecipes } from '../actions'
 
 class RecipeSearch extends React.Component {
 
-  // Search form onChange Function
-  searchHandler = (e) => {
-//   console.log(e.target.value);
-    let searchTerm = e.target.value;
-    this.setState({
-      searchTerm // it's ok to directly mutate the state here bc it points to a string (which is a pimitive data structure and is                    passed by value) as opposed to arrays and objects (passed by reference, so you have to make a copy first)
-    });
-  };
 
   render() {
     return (
@@ -18,21 +11,28 @@ class RecipeSearch extends React.Component {
         <input
           type="textsearch"
           placeholder="search..."
-          value={this.searchTerm}
-          onChange={this.searchHandler}
+          value={this.props.searchTerm}
+          onChange={(e) => this.props.filterRecipes(this.props.recipes, e.target.value)}  // CALLING ACTION HERE
         />
       </form>
     );
   }
 }
 
-function mapStateToProps(state) {
-    // console.log(state.searchTerm)
-  return { searchTerm: state.searchTerm };
-}
+//  we want to dispatch an action when the search input changes that in turn will update the store (filter the recipes based on the searhTerm)
 
-export default connect(mapStateToProps)(RecipeSearch)
+const mapStateToProps = state => ({
+    recipes: state.recipesArray,
+    searchTerm: state.searchTerm 
+})
 
+export default connect(mapStateToProps, { filterRecipes })(RecipeSearch)
+
+
+
+
+
+// REACT
 // WHERE SHOULD WE PUT OUR STATE?  the App needs to know about all the changes in the input, bc the list of the recipes lives inside the App and the App renders that list. The App needs to change based on the character the user types in. Which means that we need to go to our App and add a PIECE OF STATE TO IT.
 
 // receive the prop of searchTerm, which point to the piece of the state inside of our RecipeContainer component
