@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { deleteRecipe } from "../actions";
-import { render } from 'react-dom';
 
 
 class Recipe extends React.Component {
@@ -32,7 +31,7 @@ class Recipe extends React.Component {
                 </Link>
                 <br />
                 <p>{this.props.recipe.description}</p>
-                <button className={this.state.button ? "buttonTrue": "buttonFalse"} 
+                <button className={this.state.button ? "buttonTrue" : "buttonFalse"} 
                         onClick={ (e) => this.handleAddToFaves() }> {this.state.isToggleOn ? "Favorites" : "Added!"} </button>
                 <button id="delete" onClick={ (e) => this.props.deleteRecipe(this.props.recipes, this.props.recipe.id)}> Delete </button>
             </div>

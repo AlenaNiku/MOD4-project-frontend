@@ -14,6 +14,7 @@ function reducer(
     case "DELETE_RECIPE":
       return { ...state, recipesArray: action.payload };
 
+
     case "ADD_RECIPE":
       const recipeFave = action.payload;
       return {

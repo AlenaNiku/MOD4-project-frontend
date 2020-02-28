@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRecipes, deleteRecipe, addRecipes, filterRecipes } from '../actions'
+import { fetchRecipes, addRecipes, filterRecipes } from '../actions'
 import Recipe from '../components/Recipe';
 import RecipeSearch from '../components/RecipeSearch';
 import RecipeShow from '../components/RecipeShow';
@@ -14,6 +14,7 @@ class RecipeContainer extends React.Component {
   }
 
   render() {
+
     let recipes = this.props.recipes.map(recipeObj => (
       <Recipe
         key={recipeObj.id}
@@ -57,9 +58,9 @@ class RecipeContainer extends React.Component {
 }
 
 
-function mapStateToProps(state) {
-  return { recipes: state.filteredRecipes };
-}
+const mapStateToProps = (state) => ({
+   recipes: state.filteredRecipes 
+})
 
 function mapDispatchToProps(dispatch) {
   // console.log("working?")

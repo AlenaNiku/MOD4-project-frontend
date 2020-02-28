@@ -60,6 +60,7 @@ export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
     });
 }
 
+// Adding to Favorites
 function addRecipes(recipe) {
   return { type: "ADD_RECIPE", payload: recipe };
 }
