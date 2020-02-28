@@ -7,10 +7,7 @@ import { connect } from 'react-redux';
 const RecipeFavorites = (props) => {
     // console.log("props:", props)
 
-    let recipesFaves = props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} />)
-            
-            // clickHandler={props.clickHandler}
-          
+    let recipesFaves = props.recipes.map(recipeObj => <Recipe key={recipeObj.id} recipe={recipeObj} />)          
 
     return(
         <>

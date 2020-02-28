@@ -13,13 +13,6 @@ class RecipeContainer extends React.Component {
     this.props.fetchRecipes();
   }
 
-  // Search form onChange Function
-  // searchHandler = e => {
-  //   console.log(e.target.value);
-  //   let searchTerm = e.target.value;
-  //   this.filterRecipes(searchTerm);
-  // };
-
   render() {
     let recipes = this.props.recipes.map(recipeObj => (
       <Recipe
@@ -71,11 +64,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   // console.log("working?")
   return {
-    fetchRecipes: () => dispatch(fetchRecipes()),
-    deleteRecipe: id => dispatch(deleteRecipe(id)),
+    fetchRecipes: () => dispatch(fetchRecipes()),             // this dispatch gets intercepted by thunk
     addRecipes: recipe => dispatch(addRecipes(recipe)),
     filterRecipes: recipe => dispatch(filterRecipes(recipe))
-  }; // this dispatch gets intercepted by thunk
+  }; 
 }
 
 

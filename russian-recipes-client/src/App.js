@@ -25,19 +25,8 @@ const App = (props) => {
               <Link to="/favorites">Favorites</Link>
             </li>
           </ul>
-
-              {/*
-              A <Switch> looks through all its children <Route>
-              elements and renders the first one whose path
-              matches the current URL. Use a <Switch> any time
-              you have multiple routes, but you want only one
-              of them to render at a time
-            */}
-
         <div className="App">
-
             <Switch>
-
               <Route exact path="/" component={Welcome} />
 
               <Route path="/recipes" component={RecipeContainer} />  
@@ -45,14 +34,11 @@ const App = (props) => {
               <Route path="/create" component={NewRecipe} />
 
               <Route path="/favorites" component={RecipeFavorites} />
-
-
             </Switch>
           </div>
       </Router>
     );
 }
-
 
 export default App;
 
@@ -136,4 +122,14 @@ export default App;
   //       });
   //     });
   // };
+
+     
+/*
+      A <Switch> looks through all its children <Route>
+      elements and renders the first one whose path
+      matches the current URL. Use a <Switch> any time
+      you have multiple routes, but you want only one
+      of them to render at a time
+    */
+
 

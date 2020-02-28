@@ -29,44 +29,40 @@ function postRecipe(recipe) {
     }
 }
 
-function deleteRecipe(id) {
+function deleteRecipe(recipes, id) {
     return function(dispatch) {
         fetch(`http://localhost:3001/recipes/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
         .then(data => {
-            dispatch({ type: "DELETE_RECIPE", payload: data });
-            alert("Are you sure?")
+            dispatch({ type: "DELETE_RECIPE", 
+            payload: {newRecipes: recipes.filter(recipe => recipe.id !== data.id)} });  
+        alert("Are you sure?")
         });
     }
 }
 
-function addRecipes(recipe) {
-    return ({ type: "ADD_RECIPE", payload: recipe });
-        
-}
-
-// function filterRecipes(recipe) {
-
-//     return ({ type: "FILTER_RECIPES", payload: recipe})
-// }
 
 export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
     return dispatch({
-      type: "FILTER_RECIPES",
-      payload: {
-        searchTerm: searchTerm, 
-        recipes:
-          searchTerm === ""
-            ? recipes
-            : recipes.filter(recipe =>
-                recipe.name
-                  .toUpperCase()
-                  .includes(searchTerm.toUpperCase())
-              )
-      }
-    });
+        type: "FILTER_RECIPES",
+        payload: {
+            searchTerm: searchTerm, 
+            recipes:
+            searchTerm === ""
+                ? recipes
+                : recipes.filter(recipe =>
+                    recipe.name
+                    .toUpperCase()
+                    .includes(searchTerm.toUpperCase())
+                )
+            }
+        });
+    }
+
+function addRecipes(recipe) {
+  return { type: "ADD_RECIPE", payload: recipe };
 }
 
 // we want to filter recipes based on the searchterm
