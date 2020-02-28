@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postRecipe } from '../actions'
+import { postRecipe } from '../actions';
+import { withRouter } from "react-router-dom";
+
 
  class NewRecipe extends React.Component {
    state = {
@@ -23,13 +25,15 @@ import { postRecipe } from '../actions'
    };
 
    handleSubmit = (e) => {
-     e.preventDefault();
-     this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe // CALLING ACTION HERE
-     this.setState({
-       name: "",
-       image_url: "",
-       description: ""             // clearing out the inputs
-     });  
+      e.preventDefault();
+      this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe // CALLING ACTION HERE
+      this.props.history.push("/recipes");          // comes from BrowserRouter props
+
+    //  this.setState({
+    //    name: "",
+    //    image_url: "",
+    //    description: ""             // clearing out the inputs
+    //  });  
    };
 
 
@@ -76,7 +80,7 @@ const mapDispatchToProps = (dispatch) => {
   return { postRecipe: recipe => dispatch(postRecipe(recipe)) }
 }
 
-export default connect(null, mapDispatchToProps)(NewRecipe);
+export default withRouter(connect(null, mapDispatchToProps)(NewRecipe));
 
 
 
