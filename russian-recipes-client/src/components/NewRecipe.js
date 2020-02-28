@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postRecipe } from '../actions';
 import { withRouter } from "react-router-dom";
@@ -26,17 +25,9 @@ import { withRouter } from "react-router-dom";
 
    handleSubmit = (e) => {
       e.preventDefault();
-      this.props.postRecipe(this.state); // bc this.state is the whole object = the recipe // CALLING ACTION HERE
-      this.props.history.push("/recipes");          // comes from BrowserRouter props
-
-    //  this.setState({
-    //    name: "",
-    //    image_url: "",
-    //    description: ""             // clearing out the inputs
-    //  });  
+      this.props.postRecipe(this.state);         // bc this.state is the whole object = the recipe // CALLING ACTION HERE
+      this.props.history.push("/recipes");      // withRouter HOC gives us access to history prop 
    };
-
-
 
    render() {
      return (
@@ -67,10 +58,9 @@ import { withRouter } from "react-router-dom";
               onChange={this.changeHandler}
             ></input>
             <br />
-            <button type="submit">SUBMIT</button>
+            <button className="submit" type="submit">SUBMIT</button>
           </form>
           <br />
-         <Link to="/recipes"> SEE ALL THE RECIPES </Link>
       </div>
     );
   }

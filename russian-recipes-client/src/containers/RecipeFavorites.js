@@ -28,3 +28,5 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(RecipeFavorites) 
 
+// Once the recipe is added to Favorites I should write a dispatch action from here to remove that recipe from Favorites container
+

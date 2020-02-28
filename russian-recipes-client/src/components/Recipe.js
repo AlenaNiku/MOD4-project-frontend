@@ -2,39 +2,51 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { deleteRecipe } from "../actions";
-import { withRouter } from "react-router-dom";
+import { render } from 'react-dom';
 
 
-const Recipe = (props) => {
+class Recipe extends React.Component {
 
-    let { recipe, deleteRecipe, addRecipes, recipes } = props
+    state = {
+        isToggleOn: true,
+        button: true
+    }
 
-    const handleAddToFaves = () => {
-      addRecipes(recipe);
-      props.history.push("/favorites");          // comes from BrowserRouter props
+    handleAddToFaves = () => {
+      this.props.addRecipes(this.props.recipe);
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn,
+        button: !state.button           
+      }));
+      
     };
 
-    return (
-        <div className="tile">
-            <h1>{recipe.name}</h1>
-            <br />
-            <Link to={`/recipes/${recipe.id}`}>
-                <img alt="" src={recipe.image_url} />
-            </Link>
-            <br />
-            <p>{recipe.description}</p>
-            <button onClick={ (e) => handleAddToFaves() }> Favorites </button>
-            <button id="delete" onClick={ (e) =>deleteRecipe(recipes, recipe.id)}> Delete Recipe </button>
-        </div>
-    )
+    render() {
+
+        return (
+            <div className="tile">
+                <h1>{this.props.recipe.name}</h1>
+                <br />
+                <Link to={`/recipes/${this.props.recipe.id}`}>
+                    <img alt="" src={this.props.recipe.image_url} />
+                </Link>
+                <br />
+                <p>{this.props.recipe.description}</p>
+                <button className={this.state.button ? "buttonTrue": "buttonFalse"} 
+                        onClick={ (e) => this.handleAddToFaves() }> {this.state.isToggleOn ? "Favorites" : "Added!"} </button>
+                <button id="delete" onClick={ (e) => this.props.deleteRecipe(this.props.recipes, this.props.recipe.id)}> Delete </button>
+            </div>
+        )
+    }
 }
+
 
 const mapStateToProps = state => ({
   recipes: state.recipesArray,
 });
 
 
-export default withRouter(connect(mapStateToProps, { deleteRecipe })(Recipe));
+export default connect(mapStateToProps, { deleteRecipe })(Recipe);
 
 
 

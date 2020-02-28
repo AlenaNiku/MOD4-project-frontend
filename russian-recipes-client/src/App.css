@@ -54,7 +54,6 @@ div.favorites-container {
   border-radius: 1rem;
 }
 
-
 .tile {
   border: 2px solid #e7e7e7;
   background: white;
@@ -85,12 +84,6 @@ input[type=textsearch] {
 input[type=textsearch]:focus {
   width: 60%;
   font-size: large;
-}
-
-#delete {
-  background-color: red;
-  color: white;
-  border-radius: 5px;
 }
 
 input[type=text] {
@@ -225,8 +218,65 @@ h1.new {
   background-color: white;
 }
 
+/* Favorites and Added to favorites buttons change colors */
+.buttonTrue {
+display: inline-block;
+padding: 5px 10px;
+font-size: 10px;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+outline: none;
+color: #000;
+background-color: rgb(228, 150, 150);
+border: none;
+border-radius: 15px;
+box-shadow: 0 6px #999;
+}
+.buttonFalse {
+display: inline-block;
+padding: 5px 10px;
+font-size: 10px;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+outline: none;
+color: #fff;
+background-color:green;
+border: none;
+border-radius: 15px;
+box-shadow: 0 6px #999;
+}
 
+/* Delete Button Styling */
+#delete {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+  border: none;
+}
 
-
+.submit {
+  display: inline-block;
+  padding: 5px 10px;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #000;
+  background-color: #A0522D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+}
 
 
