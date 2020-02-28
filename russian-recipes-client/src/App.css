@@ -280,3 +280,22 @@ box-shadow: 0 6px #999;
 }
 
 
+.fave {
+  font-family: 'Pacifico', cursive;
+  background-color: white;
+  font-size: 100px;
+  margin: 1%;
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 1rem;
+}
+
+.new {
+  font-family: 'Pacifico', cursive;
+  background-color: white;
+  font-size: xx-large;
+  margin: 1%;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 1rem;
+}
