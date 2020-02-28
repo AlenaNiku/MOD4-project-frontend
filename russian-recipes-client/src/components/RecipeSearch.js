@@ -19,8 +19,6 @@ class RecipeSearch extends React.Component {
   }
 }
 
-//  we want to dispatch an action when the search input changes that in turn will update the store (filter the recipes based on the searhTerm)
-
 const mapStateToProps = state => ({
     recipes: state.recipesArray,
     searchTerm: state.searchTerm 
@@ -28,7 +26,7 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, { filterRecipes })(RecipeSearch)
 
-
+//  we want to dispatch an action when the search input changes that in turn will update the store (filter the recipes based on the searhTerm)
 
 
 

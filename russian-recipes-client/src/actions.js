@@ -43,7 +43,6 @@ function deleteRecipe(recipes, id) {
     }
 }
 
-
 export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
     return dispatch({
         type: "FILTER_RECIPES",
@@ -56,16 +55,15 @@ export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
                     recipe.name
                     .toUpperCase()
                     .includes(searchTerm.toUpperCase())
-                )
-            }
-        });
-    }
+            )
+        }
+    });
+}
 
 function addRecipes(recipe) {
   return { type: "ADD_RECIPE", payload: recipe };
 }
 
-// we want to filter recipes based on the searchterm
 
 export { fetchRecipes, postRecipe, deleteRecipe, addRecipes }; 
 
