@@ -21,12 +21,10 @@ const RecipeFavorites = (props) => {
     )
 }
 
-function mapStateToProps(state) {
-  return { recipes: state.recipeFaves };
-}
-
+const mapStateToProps = state => ({
+ recipes: state.recipeFaves
+});
 
 export default connect(mapStateToProps)(RecipeFavorites) 
 
-// Once the recipe is added to Favorites I should write a dispatch action from here to remove that recipe from Favorites container
 

@@ -21,19 +21,20 @@ class Recipe extends React.Component {
     };
 
     render() {
+            let { recipes, recipe, handleAddToFaves, deleteRecipe } = this.props;
 
         return (
             <div className="tile">
-                <h1>{this.props.recipe.name}</h1>
+                <h1>{recipe.name}</h1>
                 <br />
-                <Link to={`/recipes/${this.props.recipe.id}`}>
-                    <img alt="" src={this.props.recipe.image_url} />
+                <Link to={`/recipes/${recipe.id}`}>
+                    <img alt="" src={recipe.image_url} />
                 </Link>
                 <br />
-                <p>{this.props.recipe.description}</p>
+                <p>{recipe.description}</p>
                 <button className={this.state.button ? "buttonTrue" : "buttonFalse"} 
                         onClick={ (e) => this.handleAddToFaves() }> {this.state.isToggleOn ? "Favorites" : "Added!"} </button>
-                <button id="delete" onClick={ (e) => this.props.deleteRecipe(this.props.recipes, this.props.recipe.id)}> Delete </button>
+                <button id="delete" onClick={ (e) => deleteRecipe(recipes, recipe.id)}> Delete </button>
             </div>
         )
     }

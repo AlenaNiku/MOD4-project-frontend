@@ -28,8 +28,6 @@ export default connect(mapStateToProps, { filterRecipes })(RecipeSearch)
 
 //  we want to dispatch an action when the search input changes that in turn will update the store (filter the recipes based on the searhTerm)
 
-
-
 // REACT
 // WHERE SHOULD WE PUT OUR STATE?  the App needs to know about all the changes in the input, bc the list of the recipes lives inside the App and the App renders that list. The App needs to change based on the character the user types in. Which means that we need to go to our App and add a PIECE OF STATE TO IT.
 

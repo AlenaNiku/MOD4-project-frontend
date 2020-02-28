@@ -1,6 +1,5 @@
 
-function fetchRecipes() {
-    return function(dispatch) {
+export const fetchRecipes = () => dispatch => {
         // console.log("dispatch", dispatch)
         fetch("http://localhost:3001/recipes")
           .then(resp => resp.json())
@@ -9,10 +8,9 @@ function fetchRecipes() {
             dispatch({ type: "FETCH_RECIPES", payload: data })
           });
     }
-}
 
-function postRecipe(recipe) {
-    return function(dispatch) {
+
+export const postRecipe = (recipe) => dispatch => {
         fetch("http://localhost:3001/recipes",
           {
             method: "POST",
@@ -27,10 +25,9 @@ function postRecipe(recipe) {
               dispatch({ type: "POST_RECIPE", payload: recipe });
             });
     }
-}
 
-function deleteRecipe(recipes, id) {
-    return function(dispatch) {
+
+export const deleteRecipe = (recipes, id) => dispatch => {
         fetch(`http://localhost:3001/recipes/${id}`, {
             method: "DELETE"
         })
@@ -41,8 +38,8 @@ function deleteRecipe(recipes, id) {
         alert("Are you sure?")
         });
     }
-}
 
+// Search recipes based on the letters the user typed in
 export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
     return dispatch({
         type: "FILTER_RECIPES",
@@ -61,12 +58,9 @@ export const filterRecipes = (recipes, searchTerm) => (dispatch) => {
 }
 
 // Adding to Favorites
-function addRecipes(recipe) {
-  return { type: "ADD_RECIPE", payload: recipe };
-}
-
-
-export { fetchRecipes, postRecipe, deleteRecipe, addRecipes }; 
+export const addRecipes = (recipe) => ({
+   type: "ADD_RECIPE", payload: recipe 
+})
 
 
 
