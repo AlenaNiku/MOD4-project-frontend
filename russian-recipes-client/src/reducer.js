@@ -9,7 +9,7 @@ function reducer(
 
     case "POST_RECIPE":
       const recipe = action.payload;
-      return { ...state, recipesArray: [recipe, ...state.recipesArray] };
+      return { ...state, filteredRecipes: [recipe, ...state.filteredRecipes] };
 
     case "DELETE_RECIPE":
       return { ...state, recipesArray: action.payload };

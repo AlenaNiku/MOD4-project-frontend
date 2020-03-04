@@ -66,11 +66,15 @@ import { withRouter } from "react-router-dom";
   }
 }
 
+const mapStateToProps = (state) => ({
+  recipes: state.recipesArray
+})
+
 const mapDispatchToProps = (dispatch) => {
   return { postRecipe: recipe => dispatch(postRecipe(recipe)) }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(NewRecipe));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewRecipe));
 
 
 

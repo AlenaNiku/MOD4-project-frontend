@@ -34,7 +34,7 @@ export const deleteRecipe = (recipes, id) => dispatch => {
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: "DELETE_RECIPE", 
-            payload: {newRecipes: recipes.filter(recipe => recipe.id !== data.id)} });  
+            payload: { newRecipes: recipes.filter(recipe => recipe.id !== data.id) } });  
         alert("Are you sure?")
         });
     }
