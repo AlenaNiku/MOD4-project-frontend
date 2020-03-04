@@ -1,3 +1,4 @@
+import { bindActionCreators } from "redux";
 
 export const fetchRecipes = () => dispatch => {
         // console.log("dispatch", dispatch)
@@ -27,14 +28,15 @@ export const postRecipe = (recipe) => dispatch => {
     }
 
 
-export const deleteRecipe = (recipes, id) => dispatch => {
+export const deleteRecipe = (id) => dispatch => {
         fetch(`http://localhost:3001/recipes/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
         .then(data => {
+          // console.log(data)
             dispatch({ type: "DELETE_RECIPE", 
-            payload: { newRecipes: recipes.filter(recipe => recipe.id !== data.id) } });  
+            payload:  data  });  
         alert("Are you sure?")
         });
     }

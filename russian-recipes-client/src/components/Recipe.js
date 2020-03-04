@@ -21,7 +21,7 @@ class Recipe extends React.Component {
     };
 
     render() {
-            let { recipes, recipe, deleteRecipe } = this.props;
+            let { recipe, deleteRecipe } = this.props;
 
         return (
             <div className="tile">
@@ -34,7 +34,7 @@ class Recipe extends React.Component {
                 <p>{recipe.description}</p>
                 <button className={this.state.button ? "buttonTrue" : "buttonFalse"} 
                         onClick={ (e) => this.handleAddToFaves() }> {this.state.isToggleOn ? "Favorites" : "Added!"} </button>
-                <button id="delete" onClick={ (e) => deleteRecipe(recipes, recipe.id)}> Delete </button>
+                <button id="delete" onClick={ (e) => deleteRecipe(recipe.id)}> Delete </button>
             </div>
         )
     }

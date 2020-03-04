@@ -12,7 +12,8 @@ function reducer(
       return { ...state, filteredRecipes: [recipe, ...state.filteredRecipes] };
 
     case "DELETE_RECIPE":
-      return { ...state, recipesArray: action.payload };
+      // debugger
+      return { ...state, filteredRecipes: state.filteredRecipes.filter(recipe => recipe.id !== action.payload.id) };
 
     case "ADD_RECIPE":
       const recipeFave = action.payload;
