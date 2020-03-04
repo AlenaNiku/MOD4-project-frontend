@@ -21,7 +21,7 @@ class Recipe extends React.Component {
     };
 
     render() {
-            let { recipes, recipe, handleAddToFaves, deleteRecipe } = this.props;
+            let { recipes, recipe, deleteRecipe } = this.props;
 
         return (
             <div className="tile">
