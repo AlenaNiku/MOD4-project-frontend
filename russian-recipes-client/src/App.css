@@ -33,15 +33,15 @@ li a:hover {
 
 /* welcome page styling */
 .welcome {
-  /* background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); */
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/17/19/40/ukraine-2652560_960_720.jpg");
+  background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  /* background-image: url("https://cdn.pixabay.com/photo/2017/08/17/19/40/ukraine-2652560_960_720.jpg"); */
+  /* background-image: url("https://cdn.pixabay.com/photo/2020/03/02/19/27/vareniki-4896679_960_720.jpg"); */
   height: 100vh;
   width: auto;
   padding: 1%;
   background-size: cover;
   font-weight: 900;
 }
-
 
 
 div.welcome p {
@@ -54,13 +54,13 @@ div.welcome p {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: #A0522D;
   font-size: xx-large;
 }
 
 div.welcome h1 {
   font-size: 350%; 
-  color: whitesmoke;
+  color: #A0522D;
   margin-top: 15%;
   font-weight: 550;
   font-family: 'Pacifico', cursive;
@@ -72,8 +72,9 @@ div.welcome a {
 }
 
 button.welcomebtn {
-  background-color: #A0522D;
-  border: none;
+  /* background-color: none; */
+  background:  transparent;
+  border:  2px solid white;;
   cursor:pointer;
   padding: 15px 32px;
   text-align: center;
