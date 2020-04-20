@@ -8,17 +8,28 @@ class Recipe extends React.Component {
 
     state = {
         isToggleOn: true,
-        button: true
+        button: true,
+        liked: false
     }
+
+    
 
     handleAddToFaves = () => {
       this.props.addRecipes(this.props.recipe);
       this.setState(state => ({
         isToggleOn: !state.isToggleOn,
         button: !state.button           
-      }));
-      
+      })); 
     };
+
+  addToLiked = () => {
+    this.setState(state => ({
+      liked: !state.liked
+  }))
+}
+  
+
+
 
     render() {
             let { recipe, deleteRecipe } = this.props;
@@ -35,6 +46,7 @@ class Recipe extends React.Component {
                 <button className={this.state.button ? "buttonTrue" : "buttonFalse"} 
                         onClick={ (e) => this.handleAddToFaves() }> {this.state.isToggleOn ? "Favorites" : "Added!"} </button>
                 <button id="delete" onClick={ (e) => deleteRecipe(recipe.id)}> Delete </button>
+      
             </div>
         )
     }

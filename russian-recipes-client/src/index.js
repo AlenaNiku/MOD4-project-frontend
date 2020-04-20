@@ -8,7 +8,7 @@ import reducer from './reducer'
 import './index.css';
 import App from './App';
 
-
+                               
 const middleWare = [thunk];
 
 const reduxStore = createStore(reducer,

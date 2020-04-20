@@ -63,19 +63,9 @@ const mapStateToProps = (state) => ({
    recipes: state.filteredRecipes 
 })
 
-function mapDispatchToProps(dispatch) {
-  // console.log("working?")
-  return {
-    fetchRecipes: () => dispatch(fetchRecipes()),             // this dispatch gets intercepted by thunk
-    addRecipes: recipe => dispatch(addRecipes(recipe)),
-    
-    filterRecipes: recipe => dispatch(filterRecipes(recipe))
-  }; 
-}
 
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer);
+export default connect(mapStateToProps, { fetchRecipes, addRecipes, filterRecipes })(RecipeContainer);
 
 
 // map over the array of objects and create an array of components (w/ the received data) -> for each recipe object in the array create an instance of a recipe component and pass the whole object

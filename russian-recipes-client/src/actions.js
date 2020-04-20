@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 export const fetchRecipes = () => dispatch => {
         // console.log("dispatch", dispatch)
         fetch("http://localhost:3001/recipes")
-          .then(resp => resp.json())
+          .then(resp => resp.json())                 // pending request
           .then(data => {
             //   console.log("fetched data:", data)
             dispatch({ type: "FETCH_RECIPES", payload: data })
