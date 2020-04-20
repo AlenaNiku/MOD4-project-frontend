@@ -19,7 +19,7 @@ const App = (props) => {
               <Link to="/recipes">Recipes</Link>
             </li>
             <li>
-              <Link to="/create">Create your own Recipe</Link>
+              <Link to="/create">Create</Link>
             </li>
             <li>
               <Link to="/favorites">Favorites</Link>
