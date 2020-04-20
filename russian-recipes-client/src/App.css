@@ -3,12 +3,89 @@
   font-family: 'Muli', sans-serif;
 }
 
-.App-link {
-  color: #09d3ac;
+/*-----WELCOME PAGE-----*/
+
+/* nav bar styling */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #A0522D;
 }
 
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+/* welcome page styling */
+.welcome {
+  /* background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); */
+  background-image: url("https://cdn.pixabay.com/photo/2017/08/17/19/40/ukraine-2652560_960_720.jpg");
+  height: 100vh;
+  width: auto;
+  padding: 1%;
+  background-size: cover;
+  font-weight: 900;
+}
+
+
+
+div.welcome p {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10%;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+div.welcome h1 {
+  font-size: 350%; 
+  color: whitesmoke;
+  margin-top: 15%;
+  font-weight: 550;
+  font-family: 'Pacifico', cursive;
+}
+
+div.welcome a {
+  color: rgb(209, 88, 88);
+  font-size: x-large;
+}
+
+button.welcomebtn {
+  background-color: #A0522D;
+  border: none;
+  cursor:pointer;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+
+/*-----RECIPES PAGE-----*/
 body  {
-  /* background-image: url("https://as1.ftcdn.net/jpg/02/28/79/20/500_F_228792052_6E7XqpnvErSIzY2Mg5o1NTuXfxdpZUSW.jpg"); */
   background-image: url("https://images.unsplash.com/photo-1527976746453-f363eac4d889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
 }
 
@@ -28,12 +105,7 @@ img {
 
 .recipe-container {
   display: grid;
-  /* align-content: space-between; */
-  /* grid-template-columns: repeat(3, 1fr); */
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  /* grid-template-columns: repeat(1fr, 1fr, 1fr); */
-
-  /* grid-auto-rows: auto; */
   grid-gap: 1rem;
   padding: 1.5rem;
 }
@@ -41,8 +113,6 @@ img {
 div.favorites-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
-  /* grid-auto-rows: auto; */
   grid-gap: 1rem;
   padding: 1.5rem;
 }
@@ -81,12 +151,19 @@ input[type=textsearch] {
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  border-radius: 8px;
+  padding: 8px;
+
 }
 
 /* When the input field gets focus, change its width to 100% */
 input[type=textsearch]:focus {
   width: 60%;
   font-size: large;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 input[type=text] {
@@ -106,89 +183,11 @@ input[type=text] {
   margin-top: 3px;
 }
 
-/* nav bar styling */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #A0522D;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-
-li {
-  border-right: 1px solid #bbb;
-}
 
 
 body, html {
   height: 100%;
   font-family: 'Muli', sans-serif;
-}
-
-/* welcome page styling */
-.welcome {
-  background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  height: 100vh;
-  width: auto;
-  padding: 5%;
-  background-size: cover;
-  font-weight: 900;
-}
-
-div.welcome p {
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 10%;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  font-size: xx-large;
-}
-
-div.welcome h1 {
-  font-size: 350%; 
-  color: whitesmoke;
-  margin-top: 15%;
-  font-weight: 550;
-  font-family: 'Pacifico', cursive;
-}
-
-div.welcome a {
-  color: whitesmoke;
-  font-size: x-large;
-}
-
-button.welcomebtn {
-  background-color: #A0522D;
-  border: none;
-  cursor:pointer;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
 }
 
 
