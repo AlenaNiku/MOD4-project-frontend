@@ -144,7 +144,7 @@ body, html {
 
 /* welcome page styling */
 .welcome {
-  background-image: url("https://previews.123rf.com/images/fascinadora/fascinadora1804/fascinadora180400021/99452752-russian-food-on-wooden-background-assortment-dishes-of-russian-cuisine-borscht-pelmeni-herring-marin.jpg");
+  background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   height: 100vh;
   width: auto;
   padding: 5%;
@@ -155,7 +155,7 @@ body, html {
 div.welcome p {
   padding-left: 10%;
   padding-right: 10%;
-  padding-bottom: 3%;
+  padding-bottom: 10%;
   position: absolute;
   top: 80%;
   left: 50%;
