@@ -3,6 +3,11 @@
   font-family: 'Muli', sans-serif;
 }
 
+body, html {
+  height: 100%;
+  font-family: 'Muli', sans-serif;
+}
+
 /*-----WELCOME PAGE-----*/
 
 /* nav bar styling */
@@ -24,6 +29,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: large;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -34,16 +40,12 @@ li a:hover {
 /* welcome page styling */
 .welcome {
   background-image: url("https://cdn.pixabay.com/photo/2016/09/26/06/52/caviar-sandwich-1695360_960_720.jpg");
-  /* background-image: url("https://images.pexels.com/photos/4039609/pexels-photo-4039609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); */
-  /* background-image: url("https://cdn.pixabay.com/photo/2017/08/17/19/40/ukraine-2652560_960_720.jpg"); */
-  /* background-image: url("https://cdn.pixabay.com/photo/2020/03/02/19/27/vareniki-4896679_960_720.jpg"); */
   height: 100vh;
   width: auto;
   padding: 1%;
   background-size: cover;
   font-weight: 900;
 }
-
 
 div.welcome p {
   padding-left: 10%;
@@ -62,7 +64,7 @@ div.welcome p {
 div.welcome h1 {
   font-size: 350%;
   color: whitesmoke; 
-  margin-top: 3%;
+  margin-top: 5%;
   font-weight: 550;
   font-family: 'Pacifico', cursive;
 }
@@ -73,7 +75,6 @@ div.welcome a {
 }
 
 button.welcomebtn {
-  /* background-color: none; */
   color: whitesmoke;
   background:  transparent;
   border:  2px solid white;;
@@ -86,11 +87,11 @@ button.welcomebtn {
   border-radius: 12px;
 }
 
-
 /*-----RECIPES PAGE-----*/
 body  {
   background-image: url("https://images.unsplash.com/photo-1527976746453-f363eac4d889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
 }
+
 
 h1 {
   color: rgb(133, 77, 9);
@@ -101,8 +102,8 @@ img {
   /* display: block; */
   margin-left: auto;
   margin-right: auto;
-  width: 35%;
-  height: 35%;
+  width: 25%;
+  height: 25%;
   border-radius: 8px;
 }
 
@@ -170,7 +171,7 @@ input[type=textsearch]:focus {
 }
 
 input[type=text] {
-  width: 60%;
+  width: 40%;
   margin: 4px 0;
 }
 
@@ -187,14 +188,6 @@ input[type=text] {
 }
 
 
-
-body, html {
-  height: 100%;
-  font-family: 'Muli', sans-serif;
-}
-
-
-
 /* new recipe form styling */
 .newrecipe a {
   font-size: x-large;
@@ -204,10 +197,9 @@ body, html {
 }
 
 .newrecipe input {
-  padding: 3%;
+  padding: 2%;
   font-size: 16px;
   border-radius: 12px;
-
 }
 
 input[type=submit] {
@@ -220,7 +212,6 @@ input[type=submit] {
 }
 
 h1.new {
-  /* background-color: white; */
   font-family: 'Varela Round';
   margin-top: 2rem;
   margin-bottom: 3rem;
@@ -287,13 +278,12 @@ box-shadow: 0 6px #999;
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #000;
-  background-color: #A0522D;
+  color: white;
+  background-color:grey;
   border: none;
   border-radius: 15px;
   box-shadow: 0 6px #999;
 }
-
 
 .fave {
   font-family: 'Pacifico', cursive;
@@ -313,4 +303,13 @@ box-shadow: 0 6px #999;
   margin-left: 30%;
   margin-right: 30%;
   border-radius: 1rem;
+}
+
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    height: 60px;
+    color: whitesmoke;
+    margin-top: 37rem;
 }

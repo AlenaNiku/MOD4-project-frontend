@@ -12,7 +12,7 @@ const RecipeFavorites = (props) => {
     return(
         <>
             <div className="fave">
-                <h1>FAVORITES</h1>
+                <h1 className="faves">FAVORITES</h1>
             </div>
             <div className="favorites-container">
                 {recipesFaves}

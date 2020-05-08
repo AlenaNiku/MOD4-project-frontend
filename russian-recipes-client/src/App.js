@@ -13,16 +13,16 @@ const App = (props) => {
       <Router>
           <ul>
             <li>
-              <Link to="/">Welcome</Link>
-            </li>
-            <li>
-              <Link to="/recipes">Recipes</Link>
+              <Link to="/favorites">Favorites</Link>
             </li>
             <li>
               <Link to="/create">Create</Link>
             </li>
             <li>
-              <Link to="/favorites">Favorites</Link>
+              <Link to="/recipes">Recipes</Link>  
+            </li>
+            <li>
+              <Link to="/">Welcome</Link>
             </li>
           </ul>
         <div className="App">
