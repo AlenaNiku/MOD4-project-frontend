@@ -13,10 +13,6 @@ const Welcome = (props) => {
             <p> the world of authentic Russian cuisine and cooking recipes, the place for lovers of delicious dishes and culture of the Rus.
             In our Russian recipes cookbook you'll find a great number of dishes from ancient times to the present. We invite you to keep our company and listen to our stories over a cup of tea.</p>
             <button className="welcomebtn" onClick={handleClick}> DISCOVER RECIPES </button>
-            
-            <footer id="main-footer">
-                Alena Nikulina &copy; 2020
-            </footer>          
         </div> 
 
     )
