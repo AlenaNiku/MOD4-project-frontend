@@ -2,7 +2,7 @@
 Welcome to the "Taste of Russia", a React/Redux project for searching Russian recipes.
 ## Installation
 1. Head over to the Backend repo first, clone it down and run the server (https://github.com/AlenaNiku/MOD4-project-backend)
-1. Clone this repo, cd into that directory, and run  npm start - this will open the app in your browser (localhost:3000 if you’re on Mac)
+1. Clone this repo, cd into that directory, and run npm install && npm start - this will install all the dependancies and open the app in your browser on a development server (localhost:3000 if you’re on Mac)
 ## Usage example
 * Browse Russian recipes and see all the ingredients and instructions
 * Use the search bar to filter the recipes and find the one you need
